@@ -11,7 +11,6 @@ import 'package:flutter_map_marker_cluster/src/fade.dart';
 import 'package:flutter_map_marker_cluster/src/map_calculator.dart';
 import 'package:flutter_map_marker_cluster/src/map_widget.dart';
 import 'package:flutter_map_marker_cluster/src/marker_widget.dart';
-import 'package:flutter_map_marker_cluster/src/node/marker_node.dart';
 import 'package:flutter_map_marker_cluster/src/node/marker_or_cluster_node.dart';
 import 'package:flutter_map_marker_cluster/src/rotate.dart';
 import 'package:flutter_map_marker_cluster/src/translate.dart';
@@ -711,7 +710,7 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
 LatLngBounds _extendBounds(LatLngBounds bounds, double stickonFactor) {
   final sw = bounds.southWest;
   final ne = bounds.northEast;
-  final height = (sw!.latitude - ne!.latitude).abs() * stickonFactor;
+  final height = (sw.latitude - ne.latitude).abs() * stickonFactor;
   final width = (sw.longitude - ne.longitude).abs() * stickonFactor;
 
   // Clamp rather than wrap around. This function is used in the context of
